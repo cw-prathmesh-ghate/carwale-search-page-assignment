@@ -1,11 +1,100 @@
 *{
     margin : 0px;
-    background-color : #f5f5f5;
+    /* background-color : #f5f5f5; */
 }
 
-
-.navbar-component{
+.navbar{
+    /* border: 1px solid black; */
+    height: 60px;
+    /* background-color: blue; */
+    background-Color: #f5f5f5;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.5);
     
-    margin-top: 30px;
-    background: black;
 }
+
+.navbar-content{
+    /* border: 1px solid pink; */
+    /* width: 900px; */
+    display: flex;
+    
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    
+}
+
+.navbar-logo{
+    /* border: 1px solid pink; */
+    height: 60px;
+    width: 150px;
+    margin-left: 24px;
+}
+
+.navbar-list{
+    /* border: 1px solid pink; */
+    display: flex;
+    position: relative;
+    width: 420px;
+    /* border: 1px solid black; */
+    list-style: none;
+    margin-left: 60px;
+    justify-content: space-between;
+    
+}
+
+.navbar-list-item{
+    margin-right: 20px;
+    font-family: 'Lato', sans-serif;   
+    font-weight: bold;
+    color: rgb(99, 99, 99);
+}
+
+.navbar-search{
+    font-family: 'Lato', sans-serif;   
+    /* outline: blue; */
+    margin-left: 20px;
+    position: absolute;
+    margin-left: 770px;
+    padding-left: 10px;
+    width: 300px;
+    height: 40px;
+}
+
+.navbar-search::placeholder{
+    font-family: 'Lato', sans-serif;   
+    
+}
+
+.navbar-searchlogo{
+    position: relative;
+    color: gray;
+    /* border: gray; */
+    left: 350px;
+    /* c */
+    /* font-weight: 200; */
+    font-size: 20px;
+}
+
+.navbar-locationlogo{
+    font-size: 20px;
+    color: gray;
+    position: relative;
+    margin-left: 400px;
+}
+
+.navbar-translatelogo{
+    font-size: 20px;
+    color: gray;
+    position: relative;
+    margin-left: 30px;
+}
+
+.navbar-profilelogo{
+    font-size: 20px;
+    color: gray;
+    position: relative;
+    margin-left: 30px;
+
+}
+
+
