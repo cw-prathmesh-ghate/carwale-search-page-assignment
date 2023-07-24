@@ -3,16 +3,19 @@
 }
 
 .content-container {
-  margin-top:60px;
+  margin-top: 60px;
+
+  /* margin-right: 250px; */
   position: absolute;
 }
 
-.navbar-container{
-    margin: 0px;
-    padding: 0px
+.navbar-container {
+  margin: 0px;
+  padding: 0px;
 }
 
 .navbar {
+  z-index: 2;
   height: 60px;
   position: fixed;
   /* overflow: hidden; */
@@ -68,7 +71,6 @@
   position: relative;
   color: gray;
   left: 350px;
-  
   font-size: 20px;
 }
 
@@ -115,9 +117,10 @@
 .usedcar-content {
   font-family: "Lato", sans-serif;
   margin-top: 10px;
-  padding-left: 140px;
+  margin-left: 140px;
   position: relative;
-  padding-right: 140px;
+  margin-right: 100px;
+  /* border: 2px solid black; */
 }
 
 td,
@@ -133,11 +136,106 @@ th {
   width: 100%;
 }
 
+.readmore-btn{
+    display: flex;
+    padding-left: auto;
+    justify-content: flex-end;
+    /* right:0px; */
+}
+
 .usedcar-desctogglebtn {
   border: none;
   margin-bottom: 10px;
   background-color: transparent;
   color: rgb(55, 172, 245);
-  margin-left: 950px;
   cursor: pointer;
+}
+
+
+.car-container {
+  height: 3000px;
+  margin-left: 380px;
+  margin-right: 100px;
+  box-shadow: 0px 0px 2px 1px rgb(169, 169, 169);
+  margin-top: 10px;
+}
+
+.bestmatch-searchbox {
+  left: 600px;
+  height: 20px;
+  margin: 5px 0px;
+  position: relative;
+}
+
+.car-card {
+  background-color: rgb(245, 245, 245);
+  height: 480px;
+  width: 350px;
+  margin-top: 10px;
+  margin-left: 15px;
+  border-radius: 5px;
+  font-family: "Lato", sans-serif;
+}
+
+.car-card-image {
+  width: 350px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.car-card-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 15px;
+  margin-top: 12px;
+}
+
+.car-detail {
+  font-size: 13px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.car-price-and-offer {
+  display: flex;
+  width: 200px;
+  /* border: 1px solid black; */
+  margin-top: 17px;
+  justify-content: space-around;
+}
+
+.car-price {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.car-offer {
+    font-weight: bold;
+    color: rgb(27, 152, 230);
+}
+
+.emi-section{
+    margin-top: 17px;
+    margin-left: 15px;
+    display: flex;
+    font-size: 13px;
+}
+
+.emi-price{
+    color: rgb(27, 152, 230);
+    font-weight: bold;
+}
+
+.car-card-btn{
+    border: none;
+    background-color: red;
+    height: 50px;
+    width: 320px;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-left: 15px;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
 }

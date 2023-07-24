@@ -15,12 +15,7 @@ function App() {
       <div className="content-container">
         <BreadCrumb />
         <Description />
-        <Description />
-        <Description />
-        <Description />
-        <Description />
-        <Description />
-        <Description />
+        <Cars/>
       </div>
     </div>
   );

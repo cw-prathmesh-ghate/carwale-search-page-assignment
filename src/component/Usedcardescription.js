@@ -62,15 +62,18 @@ export default function () {
             </tr>
           </table>
         </div>
-        <input
-          className="usedcar-desctogglebtn"
-          type="button"
-          value={isvisible ? "Collapse" : "Read More"}
-          onClick={() => {
-            setisvisible(!isvisible);
-          }}
-        />
-      <hr />
+
+        <div className="readmore-btn">
+          <input
+            className="usedcar-desctogglebtn"
+            type="button"
+            value={isvisible ? "Collapse" : "Read More"}
+            onClick={() => {
+              setisvisible(!isvisible);
+            }}
+          />
+        </div>
+        <hr />
       </div>
     </div>
   );
