@@ -1,4 +1,5 @@
 import "./style.css";
+import "./filter.css";
 import React from "react";
 import Filter from "./component/Filter";
 import Cars from "./component/Cars";
@@ -15,7 +16,10 @@ function App() {
       <div className="content-container">
         <BreadCrumb />
         <Description />
-        <Cars/>
+        <div className="filter-and-cars">
+          <Filter />
+          <Cars />
+        </div>
       </div>
     </div>
   );
