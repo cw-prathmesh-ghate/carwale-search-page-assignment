@@ -1,15 +1,29 @@
 import React from "react";
 import PriceRange from "./prices";
+import axios from "axios";
 import FilterParameter from "./filterparameters";
 
-export default function () {
+export default function (props) {
+  const [AppliedFilters, SetAppliedFilters] = React.useState({
+    MakeName: "",
+    CarwaleAbsure: false,
+    CertifiedCars: false,
+    QualityReportsAvaliable: false,
+    PriceUpperBound: 0,
+    PriceLowerBound: 0,
+  });
+
+  const handleStateValue = (updateObj) => {
+    console.log(updateObj);
+    SetAppliedFilters({ ...AppliedFilters, ...updateObj });
+  };
+
   const prices = [
-    "Below ₹ 3 Lakhs",
-    "₹ 3-5 Lakhs",
-    "₹ 5-8 Lakhs",
-    "₹ 8-12 Lakhs",
-    "₹ 12-20 Lakhs",
-    "Above ₹ 20 Lakhs",
+    { title: "Below ₹ 3 Lakhs", lowerBound: 1, upperbound: 3 },
+    { title: "₹ 3-5 Lakhs", lowerBound: 3, upperbound: 5 },
+    { title: "₹ 5-8 Lakhs", lowerBound: 5, upperbound: 8 },
+    { title: "₹ 12-20 Lakhs", lowerBound: 12, upperbound: 20 },
+    { title: "Above ₹ 20 Lakhs", lowerBound: 20, upperbound: 100 },
   ];
 
   const otherParameters = [
@@ -25,17 +39,59 @@ export default function () {
   ];
 
   let ParameterElements = otherParameters.map((parameter) => {
-    return <FilterParameter keyparameter={parameter} />;
+    return (
+      <FilterParameter
+        handleClick={handleStateValue}
+        keyparameter={parameter}
+      />
+    );
   });
 
   let PriceElements = prices.map((price) => {
-    return <PriceRange keyprice={price} />;
+    return (
+      <PriceRange
+        handleClick={(l, u) =>
+          // handleStateValue({ PriceLowerBound: l, PriceUpperBound: u })
+          {
+            if (AppliedFilters.PriceLowerBound == l && AppliedFilters.PriceUpperBound == u) {
+              return handleStateValue({ PriceLowerBound: 0, PriceUpperBound: 0 });
+            }
+            else{
+              return handleStateValue({ PriceLowerBound: l, PriceUpperBound: u })
+            }
+          }
+        }
+        keyprice={price}
+      />
+    );
   });
 
   const [IsCollapsed, SetIsCollapsed] = React.useState(true);
 
   const style = { display: IsCollapsed ? "grid" : "none" };
   const style1 = { transform: !IsCollapsed ? "" : "rotate(180deg)" };
+
+  const handleApplyFilters = () => {
+    // Send the selected filters to the backend API
+    axios
+      .post("http://localhost:5213/api/GetData", AppliedFilters)
+      .then((response) => {
+        // Handle the response from the backend (e.g., update state with filtered data)
+        const filteredData = response.data;
+        props.setData(filteredData);
+        console.log(filteredData);
+        // Do something with the filtered data (e.g., update state or UI)
+      })
+      .catch((error) => {
+        console.error("not getting correct data", error);
+        // Handle errors, if any
+      });
+  };
+
+  React.useEffect(() => {
+    handleApplyFilters();
+  }, [AppliedFilters]);
+
   return (
     <div className="filter-container">
       <div className="quality-checks">

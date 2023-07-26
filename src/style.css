@@ -160,6 +160,8 @@ th {
   /* margin-right: 100px; */
   box-shadow: 0px 0px 2px 1px rgb(169, 169, 169);
   margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .bestmatch-searchbox {
@@ -173,6 +175,7 @@ th {
   background-color: rgb(245, 245, 245);
   height: 480px;
   width: 350px;
+  
   margin-top: 10px;
   margin-left: 15px;
   border-radius: 5px;

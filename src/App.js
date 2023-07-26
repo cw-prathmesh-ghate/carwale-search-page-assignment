@@ -8,6 +8,10 @@ import Navbar from "./component/Navbar";
 import Description from "./component/Usedcardescription";
 
 function App() {
+
+  const [FinalData,SetFinalData]=React.useState([])
+
+
   return (
     <div className="main">
       <div className="navbar-container">
@@ -15,10 +19,10 @@ function App() {
       </div>
       <div className="content-container">
         <BreadCrumb />
-        <Description />
+        <Description searchCount={FinalData.length}/>
         <div className="filter-and-cars">
-          <Filter />
-          <Cars />
+          <Filter setData={SetFinalData}/>
+          <Cars  sendData={FinalData} />
         </div>
       </div>
     </div>

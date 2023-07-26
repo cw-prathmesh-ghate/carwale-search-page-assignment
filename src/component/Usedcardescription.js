@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function () {
+export default function (props) {
   const [isvisible, setisvisible] = React.useState(false);
 
   const style = { display: isvisible ? "block" : "none" };
@@ -8,11 +8,11 @@ export default function () {
   return (
     <div className="usedcar-content">
       <div className="usedcar-title">
-        <h1>85,737 Used Cars in India</h1>
+        <h1>{props.searchCount} Used Cars in India</h1>
       </div>
       <div className="usedcar-desc">
         <p className="usedcar-desc-visible">
-          With 85737 used cars in India from various models such as Swift, Wagon
+          With {props.searchCount} used cars in India from various models such as Swift, Wagon
           R, City, Baleno, Swift DZire, Elite i20, Creta etc. ranging from Rs.
           N/A to Rs. 8 Crore, CarWale offers you a great choice and value for
           your money on your used car purchase. The popular cities to buy a

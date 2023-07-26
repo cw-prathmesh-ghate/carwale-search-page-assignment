@@ -2,20 +2,24 @@ import React from "react";
 import Manufacturer from "./manufacturers";
 
 export default function (props) {
+  
+
   const ManufactureList = {
     Manufacturer: [
-      "Maruti Suzuki(482)",
-      "Hyundai(164)",
-      "Mahindra(10)",
-      "Tata(20)",
-      "Toyota(32)",
-      "Renault(20)",
+      "Maruti Suzuki",
+      "Hyundai",
+      "Mahindra",
+      "Tata",
+      "Toyota",
+      "Renault",
     ],
   };
 
   let ManufacturerElements = ManufactureList.Manufacturer.map((make) => {
-    return <Manufacturer keymanufacturer={make} />;
+    return <Manufacturer changeClick={(value)=>props.handleClick({'MakeName':value})} keymanufacturer={make} />;
   });
+
+  
 
   const [IsDroppedDown, SetIsDroppedDown] = React.useState(false);
 
@@ -28,9 +32,6 @@ export default function (props) {
       <div className="specified-filter-section">
         <div className="specified-filter">
           <div className="specified-filter-heading">{props.keyparameter}</div>
-          {/* {if(1){
-            "yex";
-          }} */}
           <i
             class="fa-solid fa-caret-down price-dropdownbtn"
             style={style1}

@@ -108,6 +108,11 @@
     display: inline-flex;
 }
 
+.specified-range:hover{
+    border:1px solid green;
+    color:green
+}
+
 .price-dropdownbtn{
     cursor: pointer;
 }
